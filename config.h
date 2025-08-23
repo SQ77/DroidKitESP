@@ -9,9 +9,9 @@
 
 #define SPEAKER_PIN      16
 
-// Neo pixel code
-#define PIN 12  // LED D pin
-#define LEDno 10  // LED D pin
+// NeoPixel configuration
+#define PIN 12  // NeoPixel data pin
+#define LEDno 10  // Number of NeoPixels
 
 // Replace with your network credentials
 extern const char* ssid = "ESP32-Droid";
