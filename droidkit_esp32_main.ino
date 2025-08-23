@@ -20,7 +20,7 @@ String message = "";
 int xaxis, yaxis;
 int servoState;
 
-//Variables for movement
+// Variables for movement
 int finalSpeed;
 int finalAngle;
 Servo servo_mid;
@@ -39,12 +39,12 @@ void drive(int xaxis, int yaxis){
   }
   finalAngle = (xaxis* 5);//SERVO_SIDE_RANGE); // /100;
   servoState = SERVO_MID_POS-finalAngle;
-  Serial.print("x:"); //debug
-  Serial.print(xaxis); //debug
-  Serial.print("     y:"); //debug
-  Serial.print(yaxis); //debug
-  Serial.print("     servoState:"); //debug
-  Serial.println(servoState); //debug
+  Serial.print("x:"); // debug
+  Serial.print(xaxis); // debug
+  Serial.print("     y:"); // debug
+  Serial.print(yaxis); // debug
+  Serial.print("     servoState:"); // debug
+  Serial.println(servoState); // debug
   servoPos(servoState);
   finalSpeed = abs(yaxis*255)/100;
   if(abs(yaxis) < 30){
@@ -53,7 +53,7 @@ void drive(int xaxis, int yaxis){
     strip.setPixelColor(i, strip.Color(0, 0, 0, 0));
     strip.show();
   }
-    //stall moment
+    // Stall moment
     analogWrite(MOTOR_1_PIN_1, 0);
     analogWrite(MOTOR_1_PIN_2, 0);
   } else if(yaxis > 0){
@@ -123,7 +123,7 @@ void eventHandler(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEvent
 }
 
 String processor(const String& var){
-  //for html preprocessor
+  // For HTML preprocessor
   if(var == "ANGLE"){
     return String(finalAngle);
   }
@@ -210,8 +210,8 @@ void setup(){
   R2D2();
 
    // Connect to Wi-Fi network with SSID and password
-  Serial.print("Setting AP (Access Point)…");
-  // Remove the password parameter, if you want the AP (Access Point) to be open
+  Serial.print("Setting AP (Access Point)...");
+  // Remove the password parameter if you want the AP (Access Point) to be open
   WiFi.softAP(ssid, password);
 
   IPAddress IP = WiFi.softAPIP();
